@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env*.local
+
+# Build outputs
+dist/
+build/
+.astro/
+.next/
+.svelte-kit/
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code — local-only state
+.claude/settings.local.json
+.firecrawl/
+.superpowers/
+
+# Reference photos — large binaries, tracked separately when needed
+assets/photos/references/
