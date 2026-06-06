@@ -528,7 +528,10 @@
         rgba(5, 11, 26, 0.85) 100%),
       linear-gradient(0deg, rgba(5, 11, 26, 0.4) 0%, transparent 30%);
   }
-  .heroSlide img { object-position: center; }
+  /* No mobile, ancora a imagem pela direita: os 3 produtos (FORVIA, Hyundai
+     Painting, Hyundai FOCUS) ficam à direita do enquadramento original, então
+     centralizar cortava o produto. */
+  .heroSlide img { object-position: right center; }
   .heroHeadline { font-size: clamp(34px, 8vw, 52px); }
   .heroMetrics { max-width: 100%; }
   .metricValue { font-size: 24px; }
