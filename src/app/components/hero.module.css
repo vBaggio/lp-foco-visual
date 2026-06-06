@@ -69,6 +69,12 @@
 .navLinks a:hover { color: #fff; }
 
 .btnNav {
+  /* Força permanência na 3ª coluna do grid mesmo quando .navLinks (coluna 2)
+     está display:none — sem isso, auto-placement migra o botão para a coluna
+     1fr e ele aparece "centralizado". */
+  grid-column: 3;
+  justify-self: end;
+
   font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 700;
@@ -551,20 +557,11 @@
     width: 22px;
   }
 
-  /* Botão Orçamento como text-link no mobile — alinha visualmente com o
-     logo na borda esquerda (ambos sem padding/box visível). */
+  /* Botão Orçamento no mobile: chip estilo glass igual ao desktop, só
+     mais compacto. Background/border preservados pelo design system. */
   .btnNav {
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    padding: 4px 0;
+    padding: 8px 16px;
     font-size: 12.5px;
-  }
-  .btnNav:hover {
-    background: transparent;
-    border-color: transparent;
-    color: var(--color-primary-bright);
   }
 }
 
