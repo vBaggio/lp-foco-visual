@@ -34,7 +34,8 @@ export function Hero() {
       <div className={styles.heroContent}>
         <div className={styles.heroInner}>
           <p className={`${styles.heroOverline} ${styles.animOverline}`}>
-            Engenharia · Fabricação · Instalação
+            {/* Non-breaking space antes dos bullets evita quebra antes do "·" */}
+            Engenharia{"\u00A0"}· Fabricação{"\u00A0"}· Instalação
           </p>
 
           <h1 className={`${styles.heroHeadline} ${styles.animHeadline}`}>
@@ -112,16 +113,8 @@ export function Hero() {
               </div>
             </div>
             <div className={styles.metricItem} role="listitem">
-              <div
-                className={`${styles.metricValue} ${styles.metricValueSmall}`}
-              >
-                In-House
-              </div>
-              <div className={styles.metricLabel}>
-                Fabricação
-                <br />
-                e Instalação
-              </div>
+              <div className={styles.metricValue}>100%</div>
+              <div className={styles.metricLabel}>In-House</div>
             </div>
           </div>
         </div>

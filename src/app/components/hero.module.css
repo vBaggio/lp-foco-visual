@@ -402,10 +402,6 @@
   margin-bottom: 8px;
   font-variant-numeric: tabular-nums;
 }
-.metricValueSmall {
-  font-size: 21px;
-  letter-spacing: -0.01em;
-}
 .metricLabel {
   font-family: var(--font-body);
   font-size: 11px;
@@ -543,6 +539,32 @@
   }
   .btnGhost {
     padding-left: 30px;
+  }
+
+  /* Overline compacto para evitar quebra após o segundo bullet */
+  .heroOverline {
+    font-size: 9.5px;
+    letter-spacing: 0.10em;
+    gap: 8px;
+  }
+  .heroOverline::before {
+    width: 22px;
+  }
+
+  /* Botão Orçamento como text-link no mobile — alinha visualmente com o
+     logo na borda esquerda (ambos sem padding/box visível). */
+  .btnNav {
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 4px 0;
+    font-size: 12.5px;
+  }
+  .btnNav:hover {
+    background: transparent;
+    border-color: transparent;
+    color: var(--color-primary-bright);
   }
 }
 
