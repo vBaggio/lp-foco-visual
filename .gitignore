@@ -29,5 +29,5 @@ Thumbs.db
 .firecrawl/
 .superpowers/
 
-# Reference photos — large binaries, tracked separately when needed
-assets/photos/references/
+# Scratch / temp local (screenshots, ad-hoc files)
+tmp/

@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# assets sincronizados via scripts/sync-assets.mjs (canonical em ../assets/)
+/public/brand
+/public/images
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
