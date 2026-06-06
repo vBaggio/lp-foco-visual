@@ -21,7 +21,7 @@ const SLIDES = [
   },
 ] as const;
 
-const ROTATION_INTERVAL = 6000;
+const ROTATION_INTERVAL = 8500;
 
 /**
  * HeroSlider — controla a rotação automática das 3 instalações + pips.

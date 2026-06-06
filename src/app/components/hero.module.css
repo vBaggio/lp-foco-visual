@@ -80,8 +80,17 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: background 0.15s, border-color 0.15s;
   white-space: nowrap;
+
+  /* Hidden until navbar gains background. Evita assimetria visual com o logo
+     e libera respiro no hero. */
+  opacity: 0;
+  pointer-events: none;
+  transition: background 0.15s, border-color 0.15s, opacity 0.25s var(--ease-premium);
+}
+.navbar.scrolled .btnNav {
+  opacity: 1;
+  pointer-events: auto;
 }
 .btnNav:hover {
   background: rgba(255, 255, 255, 0.16);
@@ -91,7 +100,8 @@
 /* ─── HERO SHELL ────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100vh;          /* fallback navegadores antigos */
+  height: 100svh;          /* small viewport: hero sempre cabe mesmo com barra do browser visível */
   min-height: 640px;
   overflow: hidden;
   background: var(--color-primary-darkest);
@@ -406,21 +416,6 @@
   letter-spacing: 0.10em;
 }
 
-/* Corner mark — label vertical bottom-right */
-.heroCorner {
-  position: absolute;
-  bottom: 1.75rem;
-  right: var(--gutter-x);
-  z-index: 11;
-  font-family: var(--font-mono);
-  font-size: 9.5px;
-  color: rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  writing-mode: vertical-lr;
-  transform: rotate(180deg);
-}
-
 /* Carousel pips */
 .carouselPips {
   position: absolute;
@@ -536,6 +531,19 @@
   .heroMetrics { max-width: 100%; }
   .metricValue { font-size: 24px; }
   .carouselPips { right: 1.5rem; bottom: 1.25rem; }
+
+  /* Stack vertical com alinhamento de texto entre primário e ghost.
+     Primary tem padding-left 30px; ghost ganha o mesmo no mobile para
+     que "Solicitar Orçamento" e "Ver Portfólio" comecem na mesma coluna. */
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+  }
+  .btnGhost {
+    padding-left: 30px;
+  }
 }
 
 @media (max-height: 700px) and (min-width: 769px) {

@@ -31,14 +31,10 @@ export function Hero() {
       <div className={`${styles.heroStreak} ${styles.s2}`} aria-hidden="true" />
       <div className={styles.heroParticles} aria-hidden="true" />
 
-      <div className={styles.heroCorner} aria-hidden="true">
-        UAP 04 · 2025
-      </div>
-
       <div className={styles.heroContent}>
         <div className={styles.heroInner}>
           <p className={`${styles.heroOverline} ${styles.animOverline}`}>
-            Gestão Visual Industrial · Limeira, SP
+            Engenharia · Fabricação · Instalação
           </p>
 
           <h1 className={`${styles.heroHeadline} ${styles.animHeadline}`}>
