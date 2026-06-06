@@ -14,7 +14,7 @@ Sempre que o usuário pedir para construir, modificar, revisar ou explicar qualq
 1. **Identidade & tom** — `docs/MARKETING.md`. B2B industrial, nunca startup. Direto, técnico, confiante.
 2. **Spec da seção** — `docs/LANDING.md`. Não improvise estrutura.
 3. **Design system** — `docs/DESIGN.md`. Respeitar tokens (cores, tipografia, motion, sistema atmosférico §11 para seções dark).
-4. **Referência visual viva** — `preview/index.html` é o padrão de craft do Hero. Replicar gradient bridge, easing, calibração de texturas em outras seções dark.
+4. **Referência visual viva** — `src/app/components/Hero.tsx + hero.module.css` é o padrão de craft do Hero. Replicar gradient bridge, easing, calibração de texturas em outras seções dark.
 5. **Assets** — usar apenas `assets/brand/` (logo) e `assets/images/` (fotos).
 
 ## Regras críticas
@@ -22,7 +22,7 @@ Sempre que o usuário pedir para construir, modificar, revisar ou explicar qualq
 - **Logo sobre fundo escuro**: SEMPRE via `.logo-white` (CSS mask sobre `logo.svg`). Nunca usar PNG branco.
 - **Componentes flutuando**: evitar cards isolados sem âncora. Usar gradient bridges para integrar.
 - **Easing**: padrão `cubic-bezier(0.16, 1, 0.3, 1)` (expo-out) em todas as entradas. Hover/states curtos: 150-200ms ease.
-- **Texturas atmosféricas**: copiadas do preview, calibradas. Não duplicar receita sem necessidade — algumas seções pedem light, não dark.
+- **Texturas atmosféricas**: implementação canônica em `src/app/components/hero.module.css`, calibradas. Não duplicar receita sem necessidade — algumas seções pedem light, não dark.
 - **Placeholders**: 60+ clientes e 10+ anos são confirmados. Prazo médio, total de projetos, estados — placeholders ⚠️ até confirmação do cliente.
 
 ## Decisão dark vs light por seção
@@ -31,11 +31,11 @@ Ver tabela em `docs/LANDING.md` ("Tom dark vs light por seção"). Source-of-tru
 
 ## Padrões de código
 
-Os blocos canônicos (navbar dark transparente, gradient bridge, navy strip, métricas com dividers, sistema atmosférico) estão em `preview/index.html`. Copiar e adaptar para `src/`, não reescrever do zero.
+Os blocos canônicos (navbar dark transparente, gradient bridge, navy strip, métricas com dividers, sistema atmosférico) estão em `src/app/components/Hero.tsx + hero.module.css`. Copiar e adaptar para `src/`, não reescrever do zero.
 
 ## Verificação antes de marcar concluído
 
-1. Servidor local — `.claude/skills/foco-builder/scripts/serve.sh [preview|src] [porta]`
+1. Servidor local — `cd src && npm run dev` (http://localhost:3000)
 2. Desktop largo (≥1440px) — respiro lateral correto via `var(--gutter-x)`?
 3. Mobile (375px) — sem horizontal scroll, sem texto cortado?
 4. `prefers-reduced-motion: reduce` — animações decorativas desativam?
@@ -54,5 +54,7 @@ Os blocos canônicos (navbar dark transparente, gradient bridge, navy strip, mé
 ## Status
 
 - Repositório em fase de produção (brainstorming/spec finalizados)
-- Hero validado (`preview/index.html`)
-- Próximo: definir stack de produção (Astro recomendado para LP estática + Vercel) e iniciar `src/`
+- Stack: Next.js 16 + App Router + Tailwind v4 + static export (`src/`)
+- Hero implementado (`src/app/components/Hero.tsx + hero.module.css`)
+- Deploy Vercel configurado
+- Próximo: construir seções 2 a 9 sequencialmente

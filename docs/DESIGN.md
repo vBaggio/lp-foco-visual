@@ -332,7 +332,7 @@ Regras:
 
 ## 11. Sistema Atmosférico (seções dark)
 
-Receita calibrada para seções cinematográficas. Aplicar como camadas sobre a imagem de fundo. Referência viva em `preview/index.html`.
+Receita calibrada para seções cinematográficas. Aplicar como camadas sobre a imagem de fundo. Implementação canônica em `src/app/components/hero.module.css`.
 
 ### Camadas (z-index do menor para o maior)
 

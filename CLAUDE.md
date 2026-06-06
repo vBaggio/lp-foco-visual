@@ -14,21 +14,22 @@ Empresa B2B industrial em Limeira, SP — 10+ anos fabricando e instalando solu�
 
 ```
 docs/                           Spec (DESIGN, LANDING, MARKETING)
-assets/brand/                   Logo SVG + XCF (mestres)
-assets/images/                  Fotos validadas para produção
-preview/                        Direção visual validada (HTML estático — referência, não produção)
-src/                            LP de produção (stack a definir — Astro candidato)
+assets/brand/                   Logo SVG (masters)
+assets/images/                  Fotos validadas — source-of-truth canônico
+src/                            LP de produção (Next.js 16 + App Router + Tailwind v4)
 .claude/skills/foco-builder/    Skill do projeto: workflow + scripts
 ```
 
+Assets em `assets/` são sincronizados para `src/public/{brand,images}/` automaticamente via `npm run sync-assets` (executado como prebuild/predev). Não editar `src/public/` diretamente.
+
 ## Decisão visual atual
 
-**Hero — Industrial Cinematic** (`preview/index.html`):
+**Hero — Industrial Cinematic** (implementado em `src/app/components/Hero.tsx` + `hero.module.css`):
 - Full-bleed dark com imagem cinematográfica + gradient bridge para zona de texto
 - Slider auto-rotate entre 3 instalações (FORVIA, Hyundai x2)
 - Texturas atmosféricas calibradas: dot grid sutil, grain SVG, ambient blob, 2 light streaks
 - Easing premium `cubic-bezier(0.16, 1, 0.3, 1)`
-- Logo branco via `.logo-white` (CSS mask sobre `logo.svg`)
+- Logo branco via `.logo-white` (CSS mask sobre `/brand/logo.svg`)
 
 ## Restrições críticas
 
@@ -41,10 +42,10 @@ src/                            LP de produção (stack a definir — Astro cand
 
 ✅ Design system fechado
 ✅ Estrutura de seções aprovada
-✅ Direção do hero validada e prototipada
-✅ Repositório reorganizado para fase de produção
-⏳ Próximo: definir stack de produção (Astro recomendado para LP estática + Vercel)
-⏳ Depois: implementar `src/` seção por seção
+✅ Hero implementado em `src/app/components/`
+✅ Next.js 16 + App Router + Tailwind v4 configurados
+✅ Deploy Vercel configurado
+⏳ Próximo: construir seções 2 a 9 sequencialmente
 
 ## Pendências (aguardando input do cliente)
 

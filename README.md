@@ -10,12 +10,14 @@ docs/                       Spec do projeto
   LANDING.md                  9 seções da landing + spec do Hero
   MARKETING.md                Posicionamento, personas, copy base
 
-assets/                     Source-of-truth (não servido)
-  brand/                      Logo SVG + XCF
+assets/                     Source-of-truth canônico
+  brand/                      Logo SVG (masters)
   images/                     Fotos validadas para produção
 
-preview/                    Referência visual viva (HTML estático)
-src/                        LP de produção (stack TBD)
+src/                        LP em Next.js 16 + App Router + Tailwind v4
+  app/                        App Router
+  app/components/             Navbar, Hero, HeroSlider, ClientStrip
+  scripts/sync-assets.mjs     Sincroniza assets/ → public/ no prebuild
 
 .claude/skills/foco-builder/  Skill: workflow + verificação para construir seções
 ```
@@ -25,16 +27,17 @@ src/                        LP de produção (stack TBD)
 | | |
 |---|---|
 | Design system | ✅ Fechado (`docs/DESIGN.md`) |
-| Estrutura de seções | ✅ 9 seções (`docs/LANDING.md`) |
-| Hero | ✅ Validado (`preview/index.html`) |
-| Stack de produção | ⏳ A definir (candidato: Astro + Vercel) |
-| LP em produção | ⏳ A iniciar em `src/` |
+| Estrutura das 9 seções | ✅ Specced (`docs/LANDING.md`) |
+| Hero — Industrial Cinematic | ✅ Implementado (`src/app/components/`) |
+| Stack | ✅ Next.js 16 + Tailwind v4, deploy Vercel static export |
+| Seções 2–9 | ⏳ A construir |
 
-## Visualizar referência
+## Rodar localmente
 
 ```bash
-.claude/skills/foco-builder/scripts/serve.sh preview 8080
-# http://localhost:8080
+cd src
+npm install
+npm run dev    # http://localhost:3000
 ```
 
 ## Para agentes de IA

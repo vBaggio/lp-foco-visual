@@ -1,6 +1,6 @@
 # Landing Page — Estrutura de Seções
 
-*Spec de seções para implementação em `src/`. Referência visual viva: `preview/index.html`.*
+*Spec de seções para implementação em `src/`. Implementação canônica do Hero em `src/app/components/Hero.tsx` + `hero.module.css`.*
 
 ---
 
@@ -52,7 +52,7 @@
 - Nenhum card ou componente flutuante isolado — gradient bridge é a única forma de criar zonas
 - Easing premium (`--ease-premium`) em todas as entradas; stagger de ~150ms entre elementos
 
-**Referência viva:** `preview/index.html`
+**Referência viva:** `src/app/components/Hero.tsx`
 
 ---
 
@@ -260,5 +260,5 @@ Transições dark → light devem ser limpas (sem gradient bridge entre seções
 
 - Design tokens, paleta, motion, sistema atmosférico: `docs/DESIGN.md`
 - Tom de voz, copy base, glossário: `docs/MARKETING.md`
-- Referência visual viva do Hero: `preview/index.html`
+- Referência visual viva do Hero: `src/app/components/Hero.tsx`
 - Assets prontos: `assets/brand/` (logo) e `assets/images/` (fotos)

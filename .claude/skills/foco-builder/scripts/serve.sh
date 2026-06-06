@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
-# Serve preview/ ou src/ para visualização local.
-# Uso: ./serve.sh [preview|src] [porta]
-# Default: preview na 8080
+# Sobe o dev server do Next em src/.
+# Uso: ./serve.sh [porta]
+# Default: porta 3000
 
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)"
-TARGET="${1:-preview}"
-PORT="${2:-8080}"
+PORT="${1:-3000}"
 
-if [[ ! -d "$ROOT/$TARGET" ]]; then
-  echo "Erro: diretório $ROOT/$TARGET não existe."
-  exit 1
-fi
+cd "$ROOT/src"
 
 # Mata processo anterior na porta, se houver
 lsof -ti:"$PORT" 2>/dev/null | xargs -r kill 2>/dev/null || true
 
-cd "$ROOT/$TARGET"
-echo "Servindo $TARGET/ em http://localhost:$PORT"
-exec python3 -m http.server "$PORT"
+echo "Servindo src/ em http://localhost:$PORT"
+exec npm run dev -- --port "$PORT"
