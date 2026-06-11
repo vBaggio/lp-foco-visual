@@ -1,36 +1,17 @@
 # Foco Gestão Visual — Landing Page
 
-Landing page B2B para a **[Foco Gestão Visual](https://wa.me/5519983347475)** — soluções de gestão visual industrial sob medida para grandes indústrias (Limeira, SP · 10+ anos · clientes: Continental, FORVIA, Hyundai, Royal Canin, MANN+HUMMEL).
+Landing page B2B para a **Foco Gestão Visual** — soluções de gestão visual industrial sob medida para grandes indústrias (Limeira, SP · 10+ anos · clientes: Continental, FORVIA, Hyundai, Royal Canin, MANN+HUMMEL).
 
-## Estrutura
+Hospedado em [https://lp-foco-visual.vercel.app](https://lp-foco-visual.vercel.app).
 
-```
-docs/                       Spec do projeto
-  DESIGN.md                   Design system, tokens, motion, sistema atmosférico
-  LANDING.md                  9 seções da landing + spec do Hero
-  MARKETING.md                Posicionamento, personas, copy base
-
-assets/                     Source-of-truth canônico
-  brand/                      Logo SVG (masters)
-  images/                     Fotos validadas para produção
-
-src/                        LP em Next.js 16 + App Router + Tailwind v4
-  app/                        App Router
-  app/components/             Navbar, Hero, HeroSlider, ClientStrip
-  scripts/sync-assets.mjs     Sincroniza assets/ → public/ no prebuild
-
-.claude/skills/foco-builder/  Skill: workflow + verificação para construir seções
-```
-
-## Status
+## Estado
 
 | | |
 |---|---|
-| Design system | ✅ Fechado (`docs/DESIGN.md`) |
-| Estrutura das 9 seções | ✅ Specced (`docs/LANDING.md`) |
-| Hero — Industrial Cinematic | ✅ Implementado (`src/app/components/`) |
-| Stack | ✅ Next.js 16 + Tailwind v4, deploy Vercel static export |
-| Seções 2–9 | ⏳ A construir |
+| Stack | Next.js 16 + React 19 + TypeScript + Tailwind v4 + static export |
+| Hospedagem | Vercel (deploy auto a cada push no `main`) |
+| Hero section | Consolidado em `src/app/components/` |
+| Estrutura das demais seções | Em processo de redesign |
 
 ## Rodar localmente
 
@@ -40,9 +21,14 @@ npm install
 npm run dev    # http://localhost:3000
 ```
 
-## Para agentes de IA
+## Estrutura
 
-`CLAUDE.md` carrega contexto. A skill `foco-builder` (em `.claude/skills/`) é ativada ao trabalhar em qualquer seção da LP.
+```
+docs/MARKETING.md      Contexto, voz, posicionamento
+assets/brand/          Logo SVG
+assets/images/         Fotos para a LP
+src/                   Next.js app
+```
 
 ## License
 

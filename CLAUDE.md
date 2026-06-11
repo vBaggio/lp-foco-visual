@@ -1,63 +1,53 @@
-# Foco Gestão Visual
+# Foco Gestão Visual — Landing Page
 
 Empresa B2B industrial em Limeira, SP — 10+ anos fabricando e instalando soluções de gestão visual sob medida (quadros Kanban/Kaizen, sinalização, displays, totens) para grandes indústrias. Clientes tier-1: Continental, FORVIA, Hyundai, Royal Canin, MANN+HUMMEL.
 
-## Documentação
+## Estado atual (pós-reset)
 
-| Arquivo | Conteúdo |
-|---------|----------|
-| `docs/DESIGN.md` | Design system completo — paleta, tipografia, motion, sistema atmosférico, tokens |
-| `docs/LANDING.md` | Estrutura das 9 seções + spec do Hero atual |
-| `docs/MARKETING.md` | Posicionamento, diferenciais, personas, copy base |
+Repositório passou por um reset estrutural. Foram preservados apenas os materiais consolidados:
+
+- **Stack**: Next.js 16 + App Router + React 19 + TypeScript + Tailwind CSS v4 + static export, hospedagem Vercel
+- **Hero section**: implementada em `src/app/components/` (Hero, HeroSlider, Navbar, hero.module.css)
+- **Assets**: logo SVG em `assets/brand/`, fotos IA placeholder em `assets/images/`
+- **Tipografia**: Plus Jakarta Sans (headings) + Inter (body) + JetBrains Mono (labels técnicos) via next/font
+- **Contexto de empresa**: `docs/MARKETING.md` — posicionamento, voz, personas, objetivo da LP
+
+## O que foi dropado e está sendo redefinido
+
+- Paleta de cores
+- Estrutura, composição e ordem das seções
+- Copy
+- Design system (exceto typography)
+- Iconografia
+- Estilo visual
+- Decisões dark/light por seção
+
+Estes itens entrarão em processo de concepção via brainstorming, com spec resultante em `docs/superpowers/specs/`.
 
 ## Estrutura do repositório
 
 ```
-docs/                           Spec (DESIGN, LANDING, MARKETING)
-assets/brand/                   Logo SVG (masters)
-assets/images/                  Fotos validadas — source-of-truth canônico
-src/                            LP de produção (Next.js 16 + App Router + Tailwind v4)
-.claude/skills/foco-builder/    Skill do projeto: workflow + scripts
+docs/MARKETING.md                       Contexto da empresa + voz + objetivo
+assets/brand/                           Logo SVG
+assets/images/                          Fotos IA validadas (FORVIA, Hyundai x2)
+src/app/                                LP em Next.js 16
+src/app/components/Hero,Navbar,HeroSlider, hero.module.css
+src/app/globals.css                     Tailwind + typography (mínimo pós-reset)
+src/app/layout.tsx                      Carrega 3 fontes via next/font
+src/app/page.tsx                        Renderiza Navbar + Hero
+src/scripts/sync-assets.mjs             Sincroniza assets para public/ no prebuild
 ```
 
-Assets em `assets/` são sincronizados para `src/public/{brand,images}/` automaticamente via `npm run sync-assets` (executado como prebuild/predev). Não editar `src/public/` diretamente.
+## Rodar localmente
 
-## Decisão visual atual
+```bash
+cd src
+npm install
+npm run dev    # http://localhost:3000
+```
 
-**Hero — Industrial Cinematic** (implementado em `src/app/components/Hero.tsx` + `hero.module.css`):
-- Full-bleed dark com imagem cinematográfica + gradient bridge para zona de texto
-- Slider auto-rotate entre 3 instalações (FORVIA, Hyundai x2)
-- Texturas atmosféricas calibradas: dot grid sutil, grain SVG, ambient blob, 2 light streaks
-- Easing premium `cubic-bezier(0.16, 1, 0.3, 1)`
-- Logo branco via `.logo-white` (CSS mask sobre `/brand/logo.svg`)
+## Para agentes de IA
 
-## Restrições críticas
-
-1. **Logo** — sem versão para fundos escuros. Em seções dark, usar `.logo-white` via CSS mask. Em seções claras, usar `logo.svg` direto.
-2. **Números placeholder** — 60+ clientes e 10+ anos estão confirmados. Prazo médio, total de projetos e estados atendidos são **placeholders** — substituir antes de publicar.
-3. **Tom** — B2B industrial, nunca startup. Direto, técnico, confiante. Sem superlativas, sem urgência artificial.
-4. **Componentes** — evitar cards/elementos flutuando isolados. Composições integradas (gradient bridges, não hard edges).
-
-## Status (2026-05-27)
-
-✅ Design system fechado
-✅ Estrutura de seções aprovada
-✅ Hero implementado em `src/app/components/`
-✅ Next.js 16 + App Router + Tailwind v4 configurados
-✅ Deploy Vercel configurado
-⏳ Próximo: construir seções 2 a 9 sequencialmente
-
-## Pendências (aguardando input do cliente)
-
-- [ ] Prazo médio de entrega em dias úteis
-- [ ] Total de projetos entregues
-- [ ] Número de estados atendidos
-- [ ] Logos dos clientes (SVG monocromático)
-- [ ] Cases reais com imagem + contexto (3 para seção Portfólio)
-- [ ] Depoimentos reais com nome e cargo
-- [ ] Contato comercial (WhatsApp ou formulário?) e endereço completo do footer
-- [ ] Objetivo do novo site (atrair / reconverter / ambos)
-
-## Para construir seções
-
-Invoque a skill `foco-builder` — encapsula workflow, padrões de código (gradient bridge, navy panels, process bar), regras de tom, decisões de logo e checklist de verificação.
+1. **Tom & contexto**: `docs/MARKETING.md` é a referência de voz e posicionamento. B2B industrial, direto, técnico, sem startup.
+2. **Decisões visuais e estruturais**: ainda não definidas pós-reset. Aguardar conclusão do brainstorming antes de gerar componentes/seções.
+3. **Hero consolidado**: pode ser referência de craft (motion, polish, atenção a detalhe). Mas os tokens visuais (paleta, easing, atmosfera) serão potencialmente redefinidos.

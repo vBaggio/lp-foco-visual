@@ -1,7 +1,13 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { ClientStrip } from "./components/ClientStrip";
 
+/**
+ * Foco Gestão Visual — Landing Page
+ *
+ * Estrutura pós-reset: somente Hero + Navbar consolidados.
+ * Demais seções (estrutura, ordem, composição) serão definidas após
+ * brainstorming de redesign.
+ */
 export default function Home() {
   return (
     <>
@@ -9,7 +15,6 @@ export default function Home() {
       <main>
         <Hero />
       </main>
-      <ClientStrip />
     </>
   );
 }
